@@ -92,6 +92,18 @@
   <strong>_a_z_i_z_os</strong>
   <span>Your Photos... My Videos</span>
 </footer>
-<script>const photo=document.getElementById("photo"), preview=document.getElementById("preview"), form=document.getElementById("orderForm"), status=document.getElementById("status"); photo.addEventListener("change",()=>{const f=photo.files[0];if(!f)return;preview.src=URL.createObjectURL(f);preview.hidden=false;}); form.addEventListener("submit",(e)=>{const f=photo.files[0]; if(!f){e.preventDefault();status.textContent="اختار الصورة أولًا.";return;} if(f.size>10*1024*1024){e.preventDefault();status.textContent="الصورة كبيرة برشا. استعمل صورة أقل من 10MB.";return;} status.textContent="جاري إرسال الطلب والصورة... ⏳";});</script>
+<script>
+const photo = document.getElementById("photo");
+const preview = document.getElementById("preview");
+
+photo.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    preview.src = URL.createObjectURL(file);
+    preview.hidden = false;
+  }
+});
+</script>
 </body>
 </html>
